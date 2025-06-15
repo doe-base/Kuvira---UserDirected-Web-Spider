@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User-Directed Webcrate</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🕷️ User-Directed Webcrate</h1>
+
+    <!-- Input Section -->
+    <section class="input-section">
+      <label for="url">🌐 Enter URL:</label>
+      <input type="url" id="url" placeholder="https://example.com" required />
+
+      <label for="keywords">🔍 Keywords (comma-separated):</label>
+      <input type="text" id="keywords" placeholder="e.g. login, signup, email" />
+
+      <button id="scan-btn">Inspect Page</button>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results" style="display:none;">
+      <h2>🔗 Links Found</h2>
+      <ul id="links"></ul>
+
+      <h2>🧾 Forms Detected</h2>
+      <div id="forms"></div>
+
+      <h2>📌 Keywords Matched</h2>
+      <ul id="keyword-matches"></ul>
+
+
+      <h2>📝 Page Notes</h2>
+      <textarea id="log-note" placeholder="Write something about this page..." rows="4"></textarea>
+      <br />
+      <button id="save-log-btn">💾 Save Note</button>
+    
+      <h2>📚 Log Report</h2>
+      <ul id="log-entries"></ul>
+    
+      <div class="controls">
+        <button id="next-btn" style="display:none;">➡️ Scan Next Link</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
