@@ -1,6 +1,6 @@
 # Ignore Python virtual environments
 webcrate/webcrate-env/
-
+webcrate-env
 # Byte-compiled / cache
 __pycache__/
 *.py[cod]
