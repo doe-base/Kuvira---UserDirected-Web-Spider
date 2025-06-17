@@ -16,24 +16,31 @@ let logData = [];
 let currentLinkIndex = 0;
 let linkQueue = [];
 
+
+
 scanBtn.addEventListener("click", () => {
   const url = urlInput.value;
   const keywords = keywordInput.value || "";
+  scanBtn.innerText = 'loading...';
 
   if (!url) return alert("Please enter a URL");
 
   fetch(`/scan?url=${encodeURIComponent(url)}&keywords=${encodeURIComponent(keywords)}`)
     .then(res => res.json())
     .then(data => {
+      scanBtn.innerText = 'Inspect Page';
       resultsSection.style.display = "block";
       displayLinks(data.links);
       displayForms(data.forms);
       displayKeywords(data.keywords);
       linkQueue = data.links;
       currentLinkIndex = 0;
-      if (linkQueue.length > 0) nextBtn.style.display = "inline-block";
+      // if (linkQueue.length > 0) nextBtn.style.display = "inline-block";
     })
-    .catch(err => alert("Error scanning page: " + err));
+    .catch(err => {
+      scanBtn.innerText = 'Inspect Page';
+      alert("Error scanning page: " + err);
+    });
 });
 
 nextBtn.addEventListener("click", () => {

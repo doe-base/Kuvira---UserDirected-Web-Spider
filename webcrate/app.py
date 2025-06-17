@@ -29,7 +29,6 @@ def scan():
         html = driver.page_source
         driver.quit()
     except Exception as e:
-        print('problem here')
         return jsonify({"error": str(e)}), 400
 
     soup = BeautifulSoup(html, "html.parser")
