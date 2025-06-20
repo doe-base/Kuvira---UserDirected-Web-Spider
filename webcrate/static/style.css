@@ -90,3 +90,29 @@ body {
     border-left: 4px solid #00cc99;
     white-space: pre-wrap;
   }
+
+  .toggle-header {
+    cursor: pointer;
+    background: #222;
+    padding: 10px;
+    border: 1px solid #444;
+    color: #fff;
+    margin: 0;
+  }
+  
+  .toggle-header:hover {
+    background: #333;
+  }
+  
+  .toggle-content {
+    display: none; /* important */
+    padding: 10px;
+    border: 1px solid #444;
+    border-top: none;
+    background: #1a1a1a;
+  }
+  
+  .toggle-section {
+    margin-bottom: 1rem;
+  }
+  

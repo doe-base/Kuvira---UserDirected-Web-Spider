@@ -11,6 +11,7 @@ const keywordMatches = document.getElementById("keyword-matches");
 const saveLogBtn = document.getElementById("save-log-btn");
 const logNoteInput = document.getElementById("log-note");
 const logEntriesList = document.getElementById("log-entries");
+const headers = document.querySelectorAll(".toggle-header");
 
 let logData = [];
 let currentLinkIndex = 0;
@@ -33,6 +34,7 @@ scanBtn.addEventListener("click", () => {
       displayLinks(data.links);
       displayForms(data.forms);
       displayKeywords(data.keywords);
+      setResultHeader()
       linkQueue = data.links;
       currentLinkIndex = 0;
       // if (linkQueue.length > 0) nextBtn.style.display = "inline-block";
@@ -43,15 +45,15 @@ scanBtn.addEventListener("click", () => {
     });
 });
 
-nextBtn.addEventListener("click", () => {
-  currentLinkIndex++;
-  if (currentLinkIndex >= linkQueue.length) {
-    alert("No more links.");
-    return;
-  }
-  urlInput.value = linkQueue[currentLinkIndex];
-  scanBtn.click();
-});
+// nextBtn.addEventListener("click", () => {
+//   currentLinkIndex++;
+//   if (currentLinkIndex >= linkQueue.length) {
+//     alert("No more links.");
+//     return;
+//   }
+//   urlInput.value = linkQueue[currentLinkIndex];
+//   scanBtn.click();
+// });
 
 function displayLinks(links) {
   linksList.innerHTML = "";
@@ -107,3 +109,22 @@ function displayLogs() {
       logEntriesList.appendChild(li);
     });
 }
+
+function setResultHeader(){
+  headers.forEach(header => {
+    console.log('test')
+  
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  });
+}
+
+
+
+
